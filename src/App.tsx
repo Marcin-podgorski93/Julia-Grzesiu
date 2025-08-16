@@ -9,6 +9,31 @@ const CONFIG = {
 };
 
 export default function App() {
+  // Wklej swój Dropbox access token poniżej
+  const DROPBOX_ACCESS_TOKEN =
+    "sl.u.AF70i72O4Iy9l0Ue-tQQ6RPBMN-QnIN_CxSbfPEKKB8_5RdKbS-Hm-0gCWWyx3FWkBcXGUK6bc276Sknco12jU3fw1DgUO7wY_EFggDqtHCoFKHoUWIdq6ykF0FyieF0sAtJ3Mwy9K-1ohnoKk1ZrpvJ1ZZ1SmeYTYSz242i4ipasXeqRM2ECDpjDtmFy2R5LUQX4b77H1miUX2dM8sIkX4KHO3EUqGpQciO0qYHCUMsJ1gc3fYNjGE8AlIoM5Lux7LcSDzph4EOh1oNbAnVJMLHdv6UG-8sBhi7jc_DsDdX_UBrUHmDmlkkrXZNlASH5UWxllq9kilvlpzek1s0D2djyGj2Iioe1Jtd7bVW_U8hGdvqgnhMKQhjbN0IGxQAfW79b3zYV1R2TXZyu4tJqF3TqjxD7CiZi8QHrgtj5zDNs2rChf0S4NnD5I7CVFfsY3S_Yb_l7r2-v8v1-wz0fsfXSy448jeibSFIDj3oaNvGfKJGmkPIGzYvKleeQDlFh0MgT_e3fuNc3BVaCQoXVPIBSy_KM4_tCPn8jPaHjB8b_oXmZLrAnxLnvMgixxQZDkgTl1lhGcpUMivxlmT9wpjfT_1Y4tqeTHJkhA4ubc0udTOWA1t6H3wyIWxt-BqojuERBvuUTIyt3NPtlGQErGYXFj6PtkVIM6P9P4SyZ8Gmcfm8ihhghg0wCH1j3gdGqujwgv0LfYRoCtVWQhjwjrPgHcqJGe11i011i-phtvmUopu1ePtmk8NagIPf1SFfFkbywCdnjmCFKtkdoTblRKMec0SAesv16c-773e2e_7Bg8zpYljkuWZHhdQ-hQ6Z8XoCjA7-GDVoHIh9aeVwTSrzHKMpXyYvMlrtYgUR4iFA3Tsx4i5NjC4_tLHVQLyHXFW44eV2jChWKWOO_Qzc1HJfZI29QUZL4-axQj3omQyQODUhU1A7Wz-E_tHsucT659v0o3XaTH9qZs0fTrltszzF_qjPeSai_uhAJjrZv9sJtaj0exw-e9zDoWf8J9qez1euBd386aTurJ0U9IPtuxHKGATIrWMCEVBD_TrIUIJ5z_53LX-rzwq33jAmBkDa4F_ndaiACU1os1Rb5Yg3aP5rKPrubcwFRnAPSlwNdn9kN63I2vafJmfdzeR4r1lMVqLvzb0bJ4pAi0QPIQbqBezQ9pBGDVg4LcT0I-rMp-2qjG7BJV4pkEI9AT3DamYDDqzhZ1xYRXh1-wFZ07E_lZd2U_ufgbJVRhD4iGQMrL9tHWXBesZTKo01qSJgOM_lvioZNrH-vsEr4R8WT6H4oX9gCCXiy2ebzJrV9hIYdR7RtngJh3N_QMYv66tqyfLX3HgUQZ9paXLnH12eeE7p58r3g9EjmN0JN4dNYY-QzezjMjwH15K1SWoS6RWPDPtgjgG_kfZXaJwM9HPrlRaEGmi2a__-xLr2iV0bH-Vd1fgld8cSYFrDrxO7Jura-T3OPZ8";
+
+  // Funkcja uploadu pliku do Dropbox
+  async function handleDropboxUpload(
+    event: React.ChangeEvent<HTMLInputElement>
+  ) {
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
+    const Dropbox = (window as any).Dropbox;
+    const dbx = new Dropbox({ accessToken: DROPBOX_ACCESS_TOKEN });
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      try {
+        await dbx.filesUpload({
+          path: `/${file.name}`,
+          contents: file,
+        });
+        alert(`Plik ${file.name} przesłany!`);
+      } catch (err) {
+        alert(`Błąd przesyłania: ${file.name}`);
+      }
+    }
+  }
   const [first, second] = CONFIG.coupleNames.split("&").map((s) => s.trim());
 
   return (
@@ -41,14 +66,16 @@ export default function App() {
                 </span>
               </p>
               <div className="mt-6 flex flex-col sm:flex-row gap-3 w-full">
-                <a
-                  href={CONFIG.uploadUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex flex-1 items-center justify-center rounded-2xl bg-neutral-900 px-5 py-3 text-white shadow-sm hover:bg-neutral-800 z-10"
-                >
+                <label className="inline-flex flex-1 items-center justify-center rounded-2xl bg-neutral-900 px-5 py-3 text-white shadow-sm hover:bg-neutral-800 z-10 cursor-pointer">
                   <span className="mr-2">📤</span> Dodaj zdjęcia
-                </a>
+                  <input
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    style={{ display: "none" }}
+                    onChange={handleDropboxUpload}
+                  />
+                </label>
                 <a
                   href={CONFIG.galleryUrl}
                   target="_blank"
