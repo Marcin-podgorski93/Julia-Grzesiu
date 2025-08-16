@@ -54,14 +54,13 @@ export default function App() {
                 {CONFIG.date} • {CONFIG.location}
               </div>
             </div>
-            <div className="relative p-8 sm:p-12 lg:p-16">
-              <div className="relative mx-auto aspect-[4/5] w-4/5 md:w-full max-w-md">
+            <div className="relative p-8 sm:p-12 lg:p-16 flex items-center justify-center">
+              <div className="relative mx-auto w-4/5 md:w-full max-w-md">
                 {/* zdjęcie pary młodej */}
                 <img
                   src="/strona2.svg"
                   alt="Para młoda"
-                  className="h-full w-full object-cover"
-                  style={{ objectFit: "contain" }}
+                  className="w-full h-auto object-contain"
                 />
               </div>
             </div>
