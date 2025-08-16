@@ -30,11 +30,15 @@ export default function App() {
                 <span>Romantic</span>
               </div>
               <h1 className="mt-6 font-serif text-[40px] leading-[1.05] sm:text-[56px] md:text-[68px] lg:text-[78px] tracking-tight text-neutral-900">
-                <span className="block">{first}</span>
-                <span className="block -mt-2">&amp; {second}</span>
+                <span className="block relative z-10">{first}</span>
+                <span className="block -mt-2 relative z-10">
+                  &amp; {second}
+                </span>
               </h1>
               <p className="mt-4 text-sm sm:text-base text-neutral-600">
-                Join us for a magical celebration!
+                <span className="relative z-10">
+                  Join us for a magical celebration!
+                </span>
               </p>
               <div className="mt-6 flex flex-col sm:flex-row gap-3 w-full">
                 <a
