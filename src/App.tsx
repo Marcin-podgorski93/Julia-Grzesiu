@@ -17,7 +17,13 @@ export default function App() {
       <section className="flex justify-center px-4 sm:px-8 lg:px-16 py-10 sm:py-12 lg:py-16">
         <div className="w-full max-w-[100rem] rounded-[2rem] border border-neutral-200 bg-white/70 shadow-md backdrop-blur-sm">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-0 overflow-hidden rounded-[2rem]">
-            <div className="p-6 sm:p-10 lg:p-14 flex flex-col justify-start gap-14">
+            <div className="p-6 sm:p-10 lg:p-14 flex flex-col justify-start gap-14 relative">
+              {/* Tylko na mobile: przezroczyste zdjęcie w tle */}
+              <img
+                src="/strona2.svg"
+                alt="Para młoda tło"
+                className="block md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 opacity-30 pointer-events-none select-none z-0"
+              />
               <div className="flex items-center justify-between text-[10px] sm:text-xs uppercase tracking-[0.2em] text-neutral-500">
                 <span>Elegant</span>
                 <span className="font-serif">Rom&nce</span>
@@ -35,7 +41,7 @@ export default function App() {
                   href={CONFIG.uploadUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex flex-1 items-center justify-center rounded-2xl bg-neutral-900 px-5 py-3 text-white shadow-sm hover:bg-neutral-800"
+                  className="inline-flex flex-1 items-center justify-center rounded-2xl bg-neutral-900 px-5 py-3 text-white shadow-sm hover:bg-neutral-800 z-10"
                 >
                   <span className="mr-2">📤</span> Dodaj zdjęcia
                 </a>
@@ -43,7 +49,7 @@ export default function App() {
                   href={CONFIG.galleryUrl}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex flex-1 items-center justify-center rounded-2xl border border-neutral-300 bg-white px-5 py-3 text-neutral-900 shadow-sm hover:bg-neutral-100"
+                  className="inline-flex flex-1 items-center justify-center rounded-2xl border border-neutral-300 bg-white px-5 py-3 text-neutral-900 shadow-sm hover:bg-neutral-100 z-10"
                 >
                   <span className="mr-2">📷</span> Zobacz i pobierz
                 </a>
@@ -54,11 +60,11 @@ export default function App() {
             </div>
             <div className="relative p-8 sm:p-12 lg:p-16 flex items-center justify-center">
               <div className="relative mx-auto w-4/5 md:w-full max-w-md">
-                {/* zdjęcie pary młodej */}
+                {/* zdjęcie pary młodej widoczne tylko na desktop */}
                 <img
                   src="/strona2.svg"
                   alt="Para młoda"
-                  className="w-full h-auto object-contain"
+                  className="hidden md:block w-full h-auto object-contain"
                 />
               </div>
             </div>
@@ -86,10 +92,6 @@ export default function App() {
                 alt="QR Upload"
                 className="mb-4 rounded-lg"
               />
-              <p className="text-sm text-neutral-600 text-center mt-4">
-                Zeskanuj kod, aby anonimowo przesłać zdjęcia i filmy z telefonu.
-                Nie wymaga logowania.
-              </p>
               <div className="mt-4 flex-1 flex items-end w-full">
                 <a
                   href={CONFIG.uploadUrl}
