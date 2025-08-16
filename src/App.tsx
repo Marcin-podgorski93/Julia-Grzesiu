@@ -1,5 +1,3 @@
-import React from "react";
-
 const CONFIG = {
   coupleNames: "Julia & Grzegorz",
   date: "12.09.2025",
