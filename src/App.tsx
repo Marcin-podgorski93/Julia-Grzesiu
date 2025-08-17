@@ -24,6 +24,7 @@ export default function App() {
               <img
                 src="/strona2.svg"
                 alt="Para młoda tło"
+                loading="lazy"
                 className="block md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 opacity-30 pointer-events-none select-none z-0"
               />
               <div className="flex items-center justify-between text-[10px] sm:text-xs uppercase tracking-[0.2em] text-neutral-500">
@@ -68,8 +69,9 @@ export default function App() {
               <div className="relative mx-auto w-4/5 md:w-full max-w-md">
                 {/* zdjęcie pary młodej widoczne tylko na desktop */}
                 <img
-                  src="/strona2.svg"
+                  src="/strona2.png"
                   alt="Para młoda"
+                  loading="lazy"
                   className="hidden md:block w-full h-auto object-contain"
                 />
               </div>
@@ -96,6 +98,7 @@ export default function App() {
                   CONFIG.uploadUrl
                 )}`}
                 alt="QR Upload"
+                loading="lazy"
                 className="mb-4 rounded-lg"
               />
               <div className="mt-4 flex-1 flex items-end w-full">
@@ -116,6 +119,7 @@ export default function App() {
                   CONFIG.galleryUrl
                 )}`}
                 alt="QR Gallery"
+                loading="lazy"
                 className="mb-4 rounded-lg"
               />
               <p className="text-sm text-neutral-600 text-center mt-4">
