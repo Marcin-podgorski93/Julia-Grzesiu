@@ -6,7 +6,8 @@ const CONFIG = {
   heroImage:
     "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop",
   uploadUrl: "https://twoj-link-do-uploadu.example.com",
-  galleryUrl: "https://twoj-link-do-galerii.example.com",
+  galleryUrl:
+    "https://www.dropbox.com/scl/fo/g0655yujh9qlhmpd5fiv7/AGhRYGcy1fdhMG9bKTUo8KE?rlkey=ky2zky799spgchik9g7lgrz81&st=9ni9kki1&dl=0",
 };
 
 export default function App() {
