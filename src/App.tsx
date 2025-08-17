@@ -1,4 +1,4 @@
-import React from "react";
+// ...existing code...
 const CONFIG = {
   coupleNames: "Julia & Grzegorz",
   date: "12.09.2025",
