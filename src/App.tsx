@@ -84,6 +84,10 @@ export default function App() {
             </span>
             <span>Our Wedding</span>
           </div>
+          <footer className="mt-4 text-center text-[9px] text-neutral-200 p-5">
+            © {new Date().getFullYear()} Marcin Podgórski / MakeIT. Wszelkie
+            prawa zastrzeżone.
+          </footer>
         </div>
       </section>
 
