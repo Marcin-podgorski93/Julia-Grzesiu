@@ -1,8 +1,8 @@
 // ...existing code...
 const CONFIG = {
-  coupleNames: "Julia & Grzegorz",
-  date: "12.09.2025",
-  location: "Villa Park, Warszawa",
+  coupleNames: "Julia & Grzesiu",
+  date: "23.08.2025",
+  location: "Jordaszka, Wodzisław Śląski",
   heroImage:
     "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop",
   uploadUrl: "https://twoj-link-do-uploadu.example.com",
@@ -14,7 +14,7 @@ export default function App() {
   const [first, second] = CONFIG.coupleNames.split("&").map((s) => s.trim());
 
   return (
-    <main className="min-h-screen bg-[#f7f4ee] text-neutral-900">
+    <main className="flex flex-col justify-center min-h-screen bg-[#f7f4ee] text-neutral-900">
       {/* Górna sekcja */}
       <section className="flex justify-center px-4 sm:px-8 lg:px-16 py-10 sm:py-12 lg:py-16">
         <div className="w-full max-w-[100rem] rounded-[2rem] border border-neutral-200 bg-white/70 shadow-md backdrop-blur-sm">
@@ -22,7 +22,7 @@ export default function App() {
             <div className="p-6 sm:p-10 lg:p-14 flex flex-col justify-start gap-14 relative">
               {/* Tylko na mobile: przezroczyste zdjęcie w tle */}
               <img
-                src="/strona2.svg"
+                src="/strona2.png"
                 alt="Para młoda tło"
                 loading="lazy"
                 className="block md:hidden absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 opacity-30 pointer-events-none select-none z-0"
@@ -77,7 +77,7 @@ export default function App() {
               </div>
             </div>
           </div>
-          <div className="mt-2 flex items-center justify-between px-6 sm:px-10 py-3 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-neutral-500">
+          <div className="mt-2 flex items-center justify-between px-6 sm:px-10 py-3 text-[10px] sm:text-[11px] uppercase tracking-[0.2em] text-neutral-500 text-center">
             <span>Our Love Story</span>
             <span className="lowercase">
               {new Date().getFullYear()} • {CONFIG.coupleNames}
@@ -88,7 +88,7 @@ export default function App() {
       </section>
 
       {/* Dolna sekcja */}
-      <section className="flex justify-center px-4 sm:px-8 lg:px-16 pb-20 -mt-6">
+      {/* <section className="flex justify-center px-4 sm:px-8 lg:px-16 pb-20 -mt-6">
         <div className="w-full max-w-[100rem]">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8 md:gap-12">
             <div className="rounded-[2rem] border border-neutral-200 bg-white shadow-sm p-5 sm:p-7 md:p-8 w-full flex flex-col items-center">
@@ -143,7 +143,7 @@ export default function App() {
             {CONFIG.location}
           </footer>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }
